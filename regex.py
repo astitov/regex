@@ -4,12 +4,17 @@ import re
 
 file = 'vhost2.conf'
 
-f=open(file, 'r')
+#with open(file, 'r') as f:
+#  for line in f:
+#    text += line.strip()
+
+f = open(file, 'r')
 text = f.read()
-f.close()
+f.close
 
-p = re.compile('<VirtualHost.*>(.+)</VirtualHost>', re.I|re.M|re.S) 
-
+p = re.compile('<VirtualHost[^>]*?>(.+?)</VirtualHost>', re.I | re.S) 
 res = p.findall(text)
 
+
+print(text)
 print(res)
